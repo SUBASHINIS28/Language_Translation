@@ -1,0 +1,17 @@
+// Required modules
+const { joinVoiceChannel, createAudioPlayer, AudioPlayerStatus } = require('@discordjs/voice');
+const { VoiceReceiver } = require('@discordjs/voice');
+
+// Function to join a voice channel and start listening
+function joinChannel(channel) {
+    const connection = joinVoiceChannel({
+        channelId: channel.id,
+        guildId: channel.guild.id,
+        adapterCreator: channel.guild.voiceAdapterCreator,
+    });
+
+    const receiver = new VoiceReceiver(connection);
+    receiver.speaking.on('start', (userId) => {
+        // Handle voice input here
+    });
+}
