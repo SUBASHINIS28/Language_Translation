@@ -1,0 +1,10 @@
+# Required imports
+from googletrans import Translator
+
+# Initialize the Translator
+translator = Translator()
+
+# Function to translate text
+def translate_text(text, dest_language):
+    translation = translator.translate(text, dest=dest_language)
+    return translation.text
